@@ -20,9 +20,12 @@
         --text-muted: #4b5563;
         --card-bg: #ffffff;
         
-        /* Glass Variables */
-        --glass-bg-strong: rgba(255, 255, 255, 0.35);
-        --glass-border-strong: 1px solid rgba(255, 255, 255, 0.6);
+        /* UNIFIED GLASS VARIABLES (Used by Hero & Features) */
+        /* Reduced opacity for better background visibility */
+        --glass-bg-strong: rgba(255, 255, 255, 0.25); 
+        --glass-border-strong: 1px solid rgba(255, 255, 255, 0.5);
+        --glass-blur-amount: 12px;
+
         --glass-bg-header: rgba(255, 255, 255, 0.75);
         --shadow-color: rgba(0,0,0,0.1);
         --form-bg: #fff;
@@ -113,10 +116,10 @@
         background-repeat: no-repeat; background-size: cover; position: relative;
     }
     .hero {
-        min-height: 85vh; /* Thoda kam kiya height taaki features upar aayein */
+        min-height: 85vh;
         background-image: url("https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?auto=format&fit=crop&w=1920&q=80");
         display: flex; align-items: center; justify-content: center;
-        padding-bottom: 60px; /* Space for overlap */
+        padding-bottom: 60px;
     }
     .hero::after {
         content: ''; position: absolute; inset: 0;
@@ -126,13 +129,14 @@
     .hero-content {
         position: relative; z-index: 2; text-align: center;
         max-width: 800px; padding: 50px 40px;
-        background: var(--glass-bg-strong);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
         border-radius: 40px;
-        border: var(--glass-border-strong);
         box-shadow: 0 30px 70px rgba(0,0,0,0.15);
         animation: fadeInUp 1s ease-out;
+        /* MATCHED GLASS STYLE */
+        background: var(--glass-bg-strong);
+        border: var(--glass-border-strong);
+        backdrop-filter: blur(var(--glass-blur-amount));
+        -webkit-backdrop-filter: blur(var(--glass-blur-amount));
     }
     .hero-content h1 { font-size: 42px; margin-bottom: 16px; color: var(--text-main); text-shadow: 0 1px 3px rgba(255,255,255,0.4); }
     body.dark-mode .hero-content h1 { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
@@ -155,10 +159,10 @@
         100% { box-shadow: 0 0 10px rgba(37, 211, 102, 0.5); }
     }
 
-    /* --- NEW FEATURES STRIP (Gap Filler) --- */
+    /* --- FEATURES STRIP (Exactly Matched Glass) --- */
     .features-strip {
         position: relative; z-index: 10;
-        margin-top: -60px; /* Overlaps Hero */
+        margin-top: -60px;
         margin-bottom: 40px;
         padding: 0 20px;
     }
@@ -167,17 +171,19 @@
         gap: 20px; max-width: 1100px; margin: auto;
     }
     .feature-box {
-        background: var(--card-bg);
         padding: 24px; border-radius: 20px; text-align: center;
         box-shadow: 0 10px 40px var(--shadow-color);
-        border: 1px solid var(--glass-border-strong);
         transition: transform 0.3s ease;
-        backdrop-filter: blur(10px);
+        /* MATCHED GLASS STYLE */
+        background: var(--glass-bg-strong);
+        border: var(--glass-border-strong);
+        backdrop-filter: blur(var(--glass-blur-amount));
+        -webkit-backdrop-filter: blur(var(--glass-blur-amount));
     }
     .feature-box:hover { transform: translateY(-5px); }
     .feat-icon { font-size: 32px; margin-bottom: 12px; display: block; }
     .feat-title { font-weight: 800; font-size: 16px; margin-bottom: 6px; color: var(--primary); }
-    .feat-desc { font-size: 13px; color: var(--text-muted); margin: 0; }
+    .feat-desc { font-size: 13px; color: var(--text-main); margin: 0; font-weight: 500; }
 
     /* --- CATALOGUE --- */
     .section { padding: 40px 20px 80px; max-width: 1200px; margin: auto; position: relative; z-index: 5; }
