@@ -85,9 +85,8 @@
     .nav-actions { display: flex; gap: 15px; align-items: center; }
     .btn-nav { padding: 8px 18px; border-radius: 30px; font-size: 13px; font-weight: 600; }
     
-    /* Call Button */
+    /* Call & Order Buttons (Desktop Defaults) */
     .btn-call { color: var(--text-main); border: 1px solid var(--text-muted); background: transparent; opacity: 0.8; }
-    
     .btn-order {
         background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         color: white; border: none; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
@@ -261,13 +260,13 @@
     }
     .btn-submit:hover { background: #15803d; transform: translateY(-2px); }
 
-    /* --- RESPONSIVE LIGHTBOX (Main Fix) --- */
+    /* --- RESPONSIVE LIGHTBOX --- */
     #lightbox {
         position: fixed; inset: 0; z-index: 2000;
         background: rgba(0,0,0,0.92);
         display: none; align-items: center; justify-content: center;
         opacity: 0; transition: opacity 0.3s;
-        padding: 10px; /* Padding for mobile edges */
+        padding: 10px;
     }
     #lightbox.active { opacity: 1; }
 
@@ -286,12 +285,11 @@
         max-height: 85vh;
         width: auto;
         height: auto;
-        object-fit: contain; /* Prevents stretching */
+        object-fit: contain;
         border-radius: 8px;
         box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    /* Navigation Buttons */
     .nav-btn {
         position: absolute; top: 50%; transform: translateY(-50%);
         background: rgba(255,255,255,0.1); color: white; width: 50px; height: 50px;
@@ -309,16 +307,12 @@
         display: flex; align-items: center; justify-content: center;
     }
 
+    /* Floating "Top" Button (Water drop removed) */
     .float-btn {
         position: fixed; z-index: 999; border: none; cursor: pointer;
         display: flex; align-items: center; justify-content: center;
         box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    #waterQuickBtn {
-        right: 20px; bottom: 90px; width: 56px; height: 56px; border-radius: 50%;
-        background: #3b82f6; color: white; font-size: 24px; transform: scale(0); transition: 0.3s;
-    }
-    #waterQuickBtn.show { transform: scale(1); }
     #backTop {
         right: 20px; bottom: 30px; width: 50px; height: 50px; border-radius: 50%;
         background: var(--text-main); color: var(--bg-body); font-size: 20px; opacity: 0; pointer-events: none; transition: 0.3s;
@@ -334,7 +328,7 @@
             width: 96%;
             padding: 8px 14px;
             top: 10px;
-            border-radius: 15px; /* Square/Pill mix for Mobile */
+            border-radius: 15px; 
         }
         
         .brand {
@@ -345,12 +339,10 @@
         }
 
         .nav-actions { gap: 8px; }
-        .btn-call { display: none; } /* Hide Call on header mobile */
-        
-        .btn-order {
-            padding: 6px 14px;
-            font-size: 12px;
-        }
+
+        /* Logic: Show CALL, Hide ORDER on mobile */
+        .btn-order { display: none; } 
+        .btn-call { display: block; padding: 6px 14px; font-size: 12px; }
 
         /* Toggle Adjustment */
         .theme-switch { width: 46px; height: 24px; }
@@ -361,7 +353,7 @@
         .hero-content h1 { font-size: 32px; }
         .hero-content { padding: 30px 20px; width: 95%; }
         
-        /* Features Grid - 2 Columns on Mobile */
+        /* Features Grid */
         .features-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .feature-box { padding: 16px; }
         .feat-icon { font-size: 24px; }
@@ -369,11 +361,7 @@
         .feat-desc { font-size: 11px; }
 
         /* Lightbox Mobile Adjustments */
-        #lightImg {
-            max-width: 100%;
-            max-height: 75vh;
-        }
-        /* Buttons overlay for easy thumb reach */
+        #lightImg { max-width: 100%; max-height: 75vh; }
         #prev, #next { 
             position: fixed; top: auto; bottom: 30px; 
             width: 45px; height: 45px; background: rgba(0,0,0,0.6);
@@ -393,6 +381,7 @@
     <div class="nav-actions">
         <a href="tel:+919814812623" class="btn-nav btn-call">Call</a>
         <a href="#order" class="btn-nav btn-order">Order</a>
+        
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox" onchange="toggleTheme(this.checked)">
             <div class="slider round">
@@ -582,7 +571,10 @@
                 <label>Select Product</label>
                 <select id="category" required>
                     <option value="">Choose...</option>
-                    <option>Packaged Water – Cups & Bottles</option>
+                    <option>Packaged Water Cups (Box)</option>
+                    <option>Water Bottles - 250ml</option>
+                    <option>Water Bottles - 1 Ltr</option>
+                    <option>Water Bottles - 5 Ltr</option>
                     <option>Disposable Coffee Glass</option>
                     <option>Ping Pong Glass</option>
                     <option>Disposable Plates</option>
@@ -620,7 +612,6 @@
     </div>
 </div>
 
-<button id="waterQuickBtn" class="float-btn" onclick="scrollToOrder()">💧</button>
 <button id="backTop" class="float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
@@ -652,10 +643,7 @@ function openGallery(key){
   lbImg.src = currentGallery[0];
   lb.style.display = "flex";
   setTimeout(() => lb.classList.add("active"), 10);
-  if(key.includes("water")){
-     document.getElementById("category").value = "Packaged Water – Cups & Bottles";
-     document.getElementById("waterQuickBtn").classList.add("show");
-  }
+  /* Removed auto-select for dropdown to avoid confusion with new split categories */
 }
 
 function nextImg(){
