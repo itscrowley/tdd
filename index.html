@@ -58,12 +58,14 @@
     a { text-decoration: none; transition: 0.3s ease; }
     button { cursor: pointer; }
 
-    /* --- HEADER --- */
+    /* --- HEADER (New 3-Column Layout) --- */
     header {
         position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
         width: 90%; max-width: 1200px; z-index: 1000;
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 12px 24px; 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center;
+        padding: 8px 20px; 
         border-radius: 50px; 
         background: var(--glass-bg-header);
         backdrop-filter: saturate(180%) blur(20px);
@@ -72,29 +74,48 @@
         box-shadow: 0 10px 30px var(--shadow-color);
         transition: all 0.4s ease;
     }
-    header.scrolled { top: 10px; padding: 10px 20px; }
+    header.scrolled { top: 10px; padding: 8px 16px; }
 
-    .brand {
-        font-weight: 800; font-size: 24px;
-        background: linear-gradient(90deg, var(--primary-dark), var(--primary));
-        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
+    /* Left Side: Call Button */
+    .header-left {
+        flex: 1; /* Takes up equal space */
+        display: flex;
+        justify-content: flex-start;
     }
 
-    .nav-actions { display: flex; gap: 15px; align-items: center; }
-    .btn-nav { padding: 8px 18px; border-radius: 30px; font-size: 13px; font-weight: 600; }
-    
+    /* Center: Logo */
+    .brand {
+        flex: 0 0 auto; /* Does not grow/shrink, fits content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Right Side: Toggle */
+    .header-right {
+        flex: 1; /* Takes up equal space */
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    /* LOGO IMAGE STYLING */
+    .logo-img {
+        max-height: 70px; 
+        width: auto;
+        object-fit: cover; 
+        display: block;
+        border-radius: 50px; /* PILL SHAPE */
+    }
+
     /* Call Button */
-    .btn-call { color: var(--text-main); border: 1px solid var(--text-muted); background: transparent; opacity: 0.8; }
-    
-    .btn-order {
-        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-        color: white; border: none; box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+    .btn-nav { padding: 8px 22px; border-radius: 30px; font-size: 14px; font-weight: 700; white-space: nowrap; }
+    .btn-call { 
+        color: var(--text-main); border: 1px solid var(--text-muted); 
+        background: transparent; opacity: 0.9; 
     }
     
     /* Toggle Switch */
-    .theme-switch { position: relative; display: inline-block; width: 60px; height: 30px; flex-shrink: 0; }
+    .theme-switch { position: relative; display: inline-block; width: 54px; height: 28px; flex-shrink: 0; }
     .theme-switch input { opacity: 0; width: 0; height: 0; }
     .slider {
         position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
@@ -102,13 +123,13 @@
         display: flex; align-items: center; justify-content: space-between; padding: 0 5px;
     }
     .slider:before {
-        position: absolute; content: ""; height: 24px; width: 24px; left: 3px; bottom: 3px;
+        position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px;
         background-color: white; transition: .4s; border-radius: 50%; z-index: 2;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     input:checked + .slider { background-color: var(--primary); }
-    input:checked + .slider:before { transform: translateX(30px); }
-    .icon-sun, .icon-moon { font-size: 14px; z-index: 1; }
+    input:checked + .slider:before { transform: translateX(26px); }
+    .icon-sun, .icon-moon { font-size: 12px; z-index: 1; }
     .icon-sun { color: #f59e0b; } .icon-moon { color: #f3f4f6; }
 
 
@@ -239,9 +260,9 @@
         100% { box-shadow: 0 0 5px #fff, 0 0 15px var(--primary); }
     }
 
-    /* --- ORDER FORM (Improved Unique Glass Style) --- */
+    /* --- ORDER FORM --- */
     .form-wrapper {
-        background: var(--glass-bg-strong); /* Glass effect instead of solid */
+        background: var(--glass-bg-strong);
         padding: 40px; border-radius: 30px;
         box-shadow: 0 20px 60px var(--shadow-color); max-width: 800px; margin: 0 auto;
         border: var(--glass-border-strong);
@@ -250,16 +271,14 @@
     }
     label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--text-main); font-size: 15px;}
     
-    /* Styled Select & Inputs */
     input, select, textarea {
         width: 100%; padding: 16px 20px; border-radius: 16px;
         border: 1px solid rgba(128,128,128,0.3); 
-        background: rgba(255,255,255,0.8); /* Semi-transparent input bg */
-        color: #1f2937; /* Force dark text in inputs for readability */
+        background: rgba(255,255,255,0.8);
+        color: #1f2937;
         font-family: inherit; margin-bottom: 24px; transition: 0.3s;
-        font-size: 15px; appearance: none; /* Remove default arrow */
+        font-size: 15px; appearance: none;
     }
-    /* Custom Arrow for Select */
     select {
         background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23f97316%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
         background-repeat: no-repeat;
@@ -278,7 +297,7 @@
     }
     .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(22, 163, 74, 0.4); }
 
-    /* --- MISC --- */
+    /* --- RESPONSIVE LIGHTBOX --- */
     #lightbox {
         position: fixed; inset: 0; z-index: 2000;
         background: rgba(0,0,0,0.92);
@@ -344,28 +363,18 @@
         /* Header Fixes */
         header {
             width: 96%;
-            padding: 8px 14px;
+            padding: 8px 12px;
             top: 10px;
             border-radius: 15px; 
         }
         
-        .brand {
-            font-size: 16px; 
-            flex-shrink: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        /* Mobile Logo */
+        .logo-img {
+            max-height: 48px; 
+            border-radius: 50px;
         }
 
-        .nav-actions { gap: 8px; }
-
-        /* Logic: Show CALL, Hide ORDER on mobile */
-        .btn-order { display: none; } 
-        .btn-call { display: block; padding: 6px 14px; font-size: 12px; }
-
-        /* Toggle Adjustment */
-        .theme-switch { width: 46px; height: 24px; }
-        .slider:before { height: 18px; width: 18px; left: 3px; bottom: 3px; }
-        input:checked + .slider:before { transform: translateX(22px); }
+        .btn-nav { padding: 6px 14px; font-size: 12px; }
 
         /* Hero Adjustments */
         .hero-content h1 { font-size: 32px; }
@@ -395,11 +404,15 @@
 <body>
 
 <header id="mainHeader">
-    <div class="brand">The Disposable Depot</div>
-    <div class="nav-actions">
+    <div class="header-left">
         <a href="tel:+919814812623" class="btn-nav btn-call">Call</a>
-        <a href="#order" class="btn-nav btn-order">Order</a>
-        
+    </div>
+    
+    <div class="brand">
+        <img src="https://thedisposabledepot.wordpress.com/wp-content/uploads/2025/02/1000062278.jpg?w=1024" alt="The Disposable Depot" class="logo-img">
+    </div>
+    
+    <div class="header-right">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox" onchange="toggleTheme(this.checked)">
             <div class="slider round">
@@ -477,7 +490,7 @@
             </div>
             <div class="card-img-container">
                 <img src="https://thedisposabledepot.wordpress.com/wp-content/uploads/2025/02/1000061745-1.png" alt="">
-                <img src="https://thedisposabledepot.wordpress.com/wp-content/uploads/2025/02/1000079749.jpg" alt="">
+                <img src="https://thedisposabledepot.wordpress.com/wp-content/uploads/2025/02/1000061754.png" alt="">
             </div>
         </div>
         <div class="card" onclick="openGallery('pingPongGlass')">
