@@ -10,10 +10,10 @@
     
     /* UNIFIED GLASS VARIABLES */
     --glass-bg-strong: rgba(255, 255, 255, 0.25); 
-    --glass-border-strong: 1px solid rgba(255, 255, 255, 0.5);
-    --glass-blur-amount: 12px;
+    --glass-border-strong: 1px solid rgba(255, 255, 255, 0.2);
+    --glass-blur-amount: 10px;
 
-    --glass-bg-header: rgba(255, 255, 255, 0.75);
+    --glass-bg-header: rgba(255, 255, 255, 0.25);
     --shadow-color: rgba(0,0,0,0.1);
     --form-bg: #fff;
     --input-bg: #f9fafb;
@@ -26,9 +26,9 @@ body.dark-mode {
     --text-muted: #9ca3af;
     --card-bg: #1e293b;
     
-    --glass-bg-strong: rgba(30, 41, 59, 0.6);
+    --glass-bg-strong: rgba(30, 41, 59, 0.25);
     --glass-border-strong: 1px solid rgba(255, 255, 255, 0.15);
-    --glass-bg-header: rgba(30, 41, 59, 0.85);
+    --glass-bg-header: rgba(30, 41, 59, 0.25);
     --shadow-color: rgba(0,0,0,0.5);
     --form-bg: #1e293b;
     --input-bg: #334155;
@@ -49,7 +49,7 @@ button { cursor: pointer; }
 /* --- HEADER (Clean - Only Logo) --- */
 header {
     position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 1200px; z-index: 1000;
+    width: 90%; max-width: 800px; z-index: 1000;
     display: flex; 
     justify-content: center; 
     align-items: center;
