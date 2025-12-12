@@ -23,8 +23,8 @@
 <div class="parallax-wrapper">
     <section class="hero parallax-bg">
         <div class="hero-content">
-            <h1>Best Wholesale Prices in Jalandhar for <br><span>Water & Disposables</span></h1>
-            <p>Premium Quality Paper Cups, Glasses, Plates, Foils & Tissues Avaialable.</p>
+            <h1>Best Wholesale Prices in Jalandhar for <br><span>Packaged Water & Disposables</span></h1>
+            <p>Premium Quality Paper Cups, Glasses, Plates, Foils & Tissues Available.</p>
             <a href="#order" class="hero-cta-whatsapp">Order On WhatsApp</a>
         </div>
 
@@ -40,31 +40,6 @@
             </label>
         </div>
     </section>
-</div>
-
-<div class="features-strip">
-    <div class="features-grid">
-        <div class="feature-box">
-            <span class="feat-icon">🚀</span>
-            <div class="feat-title">Fast Delivery</div>
-            <p class="feat-desc">Same day delivery available for bulk orders in Jalandhar.</p>
-        </div>
-        <div class="feature-box">
-            <span class="feat-icon">💰</span>
-            <div class="feat-title">Wholesale Rates</div>
-            <p class="feat-desc">Direct factory pricing for caterers, offices & events.</p>
-        </div>
-        <div class="feature-box">
-            <span class="feat-icon">✨</span>
-            <div class="feat-title">Premium Quality</div>
-            <p class="feat-desc">Hygiene-first packaging and durable disposables.</p>
-        </div>
-        <div class="feature-box">
-            <span class="feat-icon">📞</span>
-            <div class="feat-title">24/7 Support</div>
-            <p class="feat-desc">Easy ordering via WhatsApp or Call anytime.</p>
-        </div>
-    </div>
 </div>
 
 <section class="section" id="catalogue">
@@ -195,6 +170,33 @@
     </div>
 </section>
 
+<div class="feature-parallax-wrapper parallax-bg">
+    <div class="glass-overlay-strip">
+        <div class="features-grid">
+            <div class="feature-box">
+                <span class="feat-icon">🚀</span>
+                <div class="feat-title">Fast Delivery</div>
+                <p class="feat-desc">Same day delivery available for bulk orders in Jalandhar.</p>
+            </div>
+            <div class="feature-box">
+                <span class="feat-icon">💰</span>
+                <div class="feat-title">Wholesale Rates</div>
+                <p class="feat-desc">Direct factory pricing for caterers, offices & events.</p>
+            </div>
+            <div class="feature-box">
+                <span class="feat-icon">✨</span>
+                <div class="feat-title">Premium Quality</div>
+                <p class="feat-desc">Hygiene-first packaging and durable disposables.</p>
+            </div>
+            <div class="feature-box">
+                <span class="feat-icon">📞</span>
+                <div class="feat-title">24/7 Support</div>
+                <p class="feat-desc">Easy ordering via WhatsApp or Call anytime.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="mid-banner parallax-bg">
     <div class="mid-content">
         <h2>Bulk Orders? We've got you covered.</h2>
@@ -287,8 +289,6 @@ function openGallery(key){
   lbImg.src = currentGallery[0];
   lb.style.display = "flex";
   setTimeout(() => lb.classList.add("active"), 10);
-  
-  // Note: Auto-select removed to avoid confusion with new detailed dropdowns
 }
 
 function nextImg(){
@@ -362,8 +362,6 @@ function sendOrder(e){
   const text = `*New Order from Website* %0A%0A📦 *Product:* ${cat} %0A🔢 *Quantity:* ${qty} %0A📝 *Notes:* ${notes || "None"}`;
   window.open("https://wa.me/919814812623?text=" + text, "_blank");
 }
-
-function scrollToOrder(){ document.getElementById("order").scrollIntoView({behavior:"smooth"}); }
 
 window.addEventListener("scroll", () => {
   const head = document.getElementById("mainHeader");
