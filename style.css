@@ -168,23 +168,20 @@ input:checked + .slider:before { transform: translateX(26px); }
 .icon-sun, .icon-moon { font-size: 12px; z-index: 1; color: var(--text-main); }
 body.dark-mode .icon-sun, body.dark-mode .icon-moon { color: #fff; }
 
-/* --- ILLUMINATED MARQUEE STRIP (UPDATED) --- */
+/* --- ILLUMINATED MARQUEE STRIP --- */
 .marquee-strip {
     width: 100%;
     margin-top: 40px; 
     margin-bottom: 0px; 
     padding: 14px 0;
-    /* Illuminated Golden/Orange Gradient Background */
     background: linear-gradient(90deg, #ffedd5 0%, #fdba74 50%, #ffedd5 100%);
     border-top: 2px solid #fff;
     border-bottom: 2px solid #fff;
     overflow: hidden;
     position: relative;
     z-index: 10;
-    /* Glow Shadow */
     box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
 }
-/* Dark Mode Marquee */
 body.dark-mode .marquee-strip {
     background: linear-gradient(90deg, #c2410c 0%, #ea580c 50%, #c2410c 100%);
     border-color: rgba(255,255,255,0.3);
@@ -200,7 +197,7 @@ body.dark-mode .marquee-strip {
 
 .marquee-track span {
     display: inline-block;
-    color: #1a0801; /* Strong dark text for contrast on bright bg */
+    color: #1a0801; 
     font-weight: 800;
     font-size: 16px;
     text-transform: uppercase;
@@ -219,7 +216,7 @@ body.dark-mode .marquee-track span { color: #fff; text-shadow: 0 1px 3px rgba(0,
     position: relative; width: 100%;
     border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1);
     margin-bottom: 60px;
-    background-image: url("https://images.unsplash.com/photo-1595246140625-573b715d11dc?q=80&w=2070&auto=format&fit=crop"); /* Subtle texture */
+    background-image: url("https://images.unsplash.com/photo-1595246140625-573b715d11dc?q=80&w=2070&auto=format&fit=crop");
 }
 .why-us-glass {
     background: rgba(255, 255, 255, 0.7);
@@ -235,7 +232,7 @@ body.dark-mode .why-us-glass { background: rgba(15, 23, 42, 0.85); }
     padding: 0 20px;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Desktop behavior: wrap nicely */
+    flex-wrap: wrap; 
 }
 
 .swipe-card {
@@ -255,7 +252,6 @@ body.dark-mode .why-us-glass { background: rgba(15, 23, 42, 0.85); }
     overflow: hidden;
 }
 
-/* Hover Lift Effect */
 .swipe-card:hover {
     transform: translateY(-10px);
     border-color: var(--primary);
@@ -310,40 +306,6 @@ body.dark-mode .why-us-glass { background: rgba(15, 23, 42, 0.85); }
     animation: glowingGold 2s infinite ease-in-out; transition: 0.3s;
 }
 .btn-glow-gold:hover { background: var(--primary); border-color: var(--primary); transform: scale(1.05); }
-@keyframes glowingGold {
-    0% { box-shadow: 0 0 5px #fff, 0 0 15px var(--primary); }
-    50% { box-shadow: 0 0 20px #fff, 0 0 30px var(--primary), 0 0 40px var(--primary-dark); }
-    100% { box-shadow: 0 0 5px #fff, 0 0 15px var(--primary); }
-}
-
-/* --- ORDER FORM --- */
-.form-wrapper {
-    background: var(--glass-bg-strong);
-    padding: 40px; border-radius: 30px;
-    box-shadow: 0 20px 60px var(--shadow-color); max-width: 800px; margin: 0 auto;
-    border: var(--glass-border-strong);
-    backdrop-filter: blur(var(--glass-blur-amount)); -webkit-backdrop-filter: blur(var(--glass-blur-amount));
-}
-label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--text-main); font-size: 15px;}
-input, select, textarea {
-    width: 100%; padding: 16px 20px; border-radius: 16px;
-    border: 1px solid rgba(128,128,128,0.3); background: rgba(255,255,255,0.8);
-    color: #1f2937; font-family: inherit; margin-bottom: 24px; transition: 0.3s;
-    font-size: 15px; appearance: none;
-}
-select {
-    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23f97316%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-    background-repeat: no-repeat; background-position: right 20px center; background-size: 12px;
-}
-input:focus, select:focus, textarea:focus {
-    outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15); background: #fff;
-}
-.btn-submit {
-    width: 100%; background: linear-gradient(135deg, var(--secondary), #15803d); 
-    color: white; padding: 18px; border: none; border-radius: 50px; font-size: 18px; font-weight: 800; cursor: pointer;
-    transition: 0.3s; box-shadow: 0 10px 25px rgba(22, 163, 74, 0.3);
-}
-.btn-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(22, 163, 74, 0.4); }
 
 /* --- LIGHTBOX & UTILS --- */
 #lightbox {
@@ -422,4 +384,157 @@ input:focus, select:focus, textarea:focus {
     #prev, #next { position: fixed; top: auto; bottom: 30px; width: 45px; height: 45px; background: rgba(0,0,0,0.6); }
     #prev { left: 20px; } #next { right: 20px; }
     .mid-content h2 { font-size: 26px; }
+
+    /* WHATSAPP CARD MOBILE OPTIMIZATIONS */
+    .wa-card { 
+        border-radius: 15px; 
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0;
+    }
+    #order { padding: 40px 15px; }
+    .section-title { margin-top: 20px; }
 }
+
+/* --- WHATSAPP CHAT THEME DESIGN --- */
+#order {
+    padding: 60px 15px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* WhatsApp font feel */
+}
+
+.wa-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #efeae2; /* WhatsApp Chat BG Color */
+    /* WhatsApp Doodle Pattern (Simulated) */
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    background-size: 400px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* DARK MODE WHATSAPP OPTIMIZATION */
+body.dark-mode .wa-card {
+    background-color: #0b141a; /* True Dark Mode WhatsApp BG */
+    background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
+    background-blend-mode: overlay;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- WA HEADER --- */
+.wa-header {
+    background: #075E54; /* Classic WA Teal */
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative; z-index: 10;
+}
+body.dark-mode .wa-header { background: #1f2c34; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+.wa-profile-pic img {
+    width: 40px; height: 40px; border-radius: 50%;
+    margin-right: 12px; border: 1px solid rgba(255,255,255,0.2);
+}
+
+.wa-info { flex: 1; }
+.wa-name { margin: 0; font-size: 16px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+.wa-verified { font-size: 12px; background: #25D366; color: white; padding: 2px 4px; border-radius: 50%; width: 14px; height: 14px; display: flex; align-items: center; justify-content: center; }
+.wa-status { margin: 0; font-size: 12px; opacity: 0.8; }
+
+.wa-actions { font-size: 18px; letter-spacing: 15px; opacity: 0.8; cursor: pointer; }
+
+/* --- WA BODY & BUBBLES --- */
+.wa-body {
+    padding: 20px;
+    display: flex; flex-direction: column; gap: 15px;
+}
+
+.msg-row { display: flex; width: 100%; }
+.msg-row.incoming { justify-content: flex-start; }
+.msg-row.outgoing { justify-content: flex-end; }
+
+.msg-bubble {
+    max-width: 85%;
+    padding: 8px 10px;
+    border-radius: 7.5px;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* White Bubble (Incoming) */
+.msg-bubble { background: #fff; color: #111; border-top-left-radius: 0; }
+body.dark-mode .msg-bubble { background: #1f2c34; color: #fff; border: 1px solid rgba(255,255,255,0.05); }
+
+/* Green Bubble (Outgoing - Form Inputs) */
+.green-bubble {
+    background: #dcf8c6; /* WhatsApp Light Green */
+    color: #111;
+    border-top-left-radius: 7.5px;
+    border-top-right-radius: 0;
+    min-width: 200px;
+}
+body.dark-mode .green-bubble { background: #005c4b; color: #fff; border: 1px solid rgba(255,255,255,0.05); }
+
+/* INPUT STYLING INSIDE BUBBLES */
+.bubble-label {
+    display: block; font-size: 10px; color: #075E54; font-weight: 700; text-transform: uppercase; margin-bottom: 2px;
+}
+body.dark-mode .bubble-label { color: #25D366; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+
+.wa-form select, 
+.wa-form textarea {
+    width: 100%;
+    background: transparent;
+    border: none; border-bottom: 1px dashed rgba(0,0,0,0.2);
+    font-family: inherit; font-size: 15px;
+    color: inherit;
+    padding: 5px 0;
+    outline: none;
+    appearance: none;
+}
+body.dark-mode .wa-form select,
+body.dark-mode .wa-form textarea { border-bottom: 1px dashed rgba(255,255,255,0.3); }
+
+/* --- DARK MODE DROPDOWN FIX (CRUCIAL) --- */
+body.dark-mode .wa-form select option {
+    background-color: #1f2c34; /* Dark WhatsApp Grey */
+    color: white;
+}
+
+.wa-form select { cursor: pointer; }
+.wa-form textarea { resize: none; min-height: 24px; }
+
+/* Meta Data (Time & Ticks) */
+.msg-meta {
+    display: flex; justify-content: flex-end; align-items: center; gap: 4px;
+    margin-top: 2px;
+}
+.msg-time { font-size: 10px; color: rgba(0,0,0,0.45); }
+body.dark-mode .msg-time { color: rgba(255,255,255,0.6); }
+
+.double-tick { font-size: 10px; color: #34B7F1; font-weight: bold; } /* Blue Ticks */
+
+/* --- FOOTER SEND BUTTON --- */
+.wa-footer-bar {
+    margin-top: 10px;
+    display: flex; justify-content: center;
+}
+
+.wa-send-btn {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px; font-weight: 700;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+    transition: 0.3s;
+}
+.wa-send-btn:hover { transform: scale(1.05); background: #128C7E; }
