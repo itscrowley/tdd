@@ -88,16 +88,15 @@ header.scrolled { top: 10px; }
     background-repeat: no-repeat; background-size: cover; position: relative;
 }
 .hero {
-    min-height: 95vh;
+    min-height: auto; /* Height content ke hisab se adjust hogi */
     background-image: url("https://images.unsplash.com/photo-1671036810802-379ec0c402d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
     display: flex; 
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
     
-    /* FIX: Added Padding Top to push content below header */
-    padding-top: 160px; 
-    padding-bottom: 80px; 
+    padding-top: 140px; /* Thoda upar se bhi space adjust kiya */
+    padding-bottom: 40px; /* Neeche ka space aadha kar diya */
 }
 .hero::after {
     content: ''; position: absolute; inset: 0;
@@ -145,10 +144,9 @@ body.dark-mode .hero-content h1 { text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
     align-items: center;
     gap: 20px;
     
-    margin-top: 45px; /* Space between Main Box and this Bar */
-    margin-bottom: 45px; /* Space between this Bar and Mouse Scroll */
+    margin-top: 30px; 
+    margin-bottom: 10px; /* Yeh space catalogue aur buttons ke beech ka hai, isko kam kiya */
     
-    /* Glass Style */
     padding: 12px 30px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.15); 
@@ -174,7 +172,6 @@ body.dark-mode .hero-actions-row {
     border: 2px solid #fff;
     background: rgba(255,255,255,0.3);
     transition: 0.3s;
-    /* Illumination Animation */
     animation: glowingWhite 2s infinite ease-in-out;
 }
 body.dark-mode .btn-hero-call { color: #fff; border-color: rgba(255,255,255,0.6); }
@@ -213,28 +210,43 @@ input:checked + .slider:before { transform: translateX(26px); }
 .icon-sun, .icon-moon { font-size: 12px; z-index: 1; color: var(--text-main); }
 body.dark-mode .icon-sun, body.dark-mode .icon-moon { color: #fff; }
 
-/* --- FEATURES STRIP --- */
-.features-strip {
-    position: relative; z-index: 10;
-    /* Adjusted margin to account for spacing */
-    margin-top: -60px; 
-    margin-bottom: 40px;
-    padding: 0 20px;
+/* --- FEATURES SECTION (UPDATED) --- */
+.feature-parallax-wrapper {
+    position: relative;
+    width: 100%;
+    /* Warehouse / Cardboard Texture Image */
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 60px;
 }
+body.dark-mode .feature-parallax-wrapper {
+    border-color: rgba(255,255,255,0.1);
+}
+
+.glass-overlay-strip {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 10px 80px;
+    width: 105%;
+    height: 105%;
+}
+body.dark-mode .glass-overlay-strip {
+    background: rgba(15, 23, 42, 0.75);
+}
+
 .features-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px; max-width: 1100px; margin: auto;
+    gap: 30px; max-width: 1100px; margin: auto;
 }
 .feature-box {
-    padding: 24px; border-radius: 20px; text-align: center;
-    box-shadow: 0 10px 40px var(--shadow-color);
+    padding: 30px; border-radius: 20px; text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-color);
     transition: transform 0.3s ease;
-    background: var(--glass-bg-strong);
-    border: var(--glass-border-strong);
-    backdrop-filter: blur(var(--glass-blur-amount));
-    -webkit-backdrop-filter: blur(var(--glass-blur-amount));
+    background: var(--card-bg); /* Solid background to pop against glass */
+    border: 1px solid var(--glass-border-strong);
 }
-.feature-box:hover { transform: translateY(-5px); }
+.feature-box:hover { transform: translateY(-8px); border-color: var(--primary); }
 .feat-icon { font-size: 32px; margin-bottom: 12px; display: block; }
 .feat-title { font-weight: 800; font-size: 16px; margin-bottom: 6px; color: var(--primary); }
 .feat-desc { font-size: 13px; color: var(--text-main); margin: 0; font-weight: 500; }
@@ -421,6 +433,7 @@ input:focus, select:focus, textarea:focus {
     
     /* Features Grid */
     .features-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .glass-overlay-strip { padding: 60px 20px; } /* Less padding on mobile */
     .feature-box { padding: 16px; }
     .feat-icon { font-size: 24px; }
     .feat-title { font-size: 14px; }
@@ -436,5 +449,4 @@ input:focus, select:focus, textarea:focus {
     #next { right: 20px; }
 
     .mid-content h2 { font-size: 26px; }
-    .features-strip { margin-top: -30px; }
 }
