@@ -40,20 +40,14 @@
             </label>
         </div>
 
-        <div class="marquee-strip">
+        <div class="marquee-strip glow-effect">
             <div class="marquee-track">
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
-                <span>Special Offer for Limited Time 💥 &nbsp;•&nbsp; </span>
+                <span>🔥 Special Offer: Bulk Discounts Available! &nbsp;•&nbsp; </span>
+                <span>⚡ Limited Time Offer &nbsp;•&nbsp; </span>
+                <span>🔥 Special Offer: Bulk Discounts Available! &nbsp;•&nbsp; </span>
+                <span>⚡ Limited Time Offer &nbsp;•&nbsp; </span>
+                <span>🔥 Special Offer: Bulk Discounts Available! &nbsp;•&nbsp; </span>
+                <span>⚡ Limited Time Offer &nbsp;•&nbsp; </span>
             </div>
         </div>
         </section>
@@ -187,30 +181,41 @@
     </div>
 </section>
 
-<div class="feature-parallax-wrapper parallax-bg">
-    <div class="glass-overlay-strip">
-        <div class="features-grid">
-            <div class="feature-box">
-                <span class="feat-icon">📞</span>
-                <div class="feat-title">24/7 Support</div>
-                <p class="feat-desc">Easy ordering via WhatsApp or Call anytime.</p>
+<div class="why-us-wrapper parallax-bg">
+    <div class="why-us-glass">
+        <h2 class="section-title" style="margin-bottom: 30px;">The Wholesale Advantage</h2>
+        <div class="swipe-container">
+            <div class="swipe-card">
+                <div class="swipe-icon">🚀</div>
+                <div class="swipe-text">
+                    <h4>Fast Delivery</h4>
+                    <p>Same day dispatch in Jalandhar.</p>
+                </div>
             </div>
-            <div class="feature-box">
-                <span class="feat-icon">💰</span>
-                <div class="feat-title">Wholesale Rates</div>
-                <p class="feat-desc">Direct factory pricing for caterers, offices & events.</p>
+            <div class="swipe-card">
+                <div class="swipe-icon">💰</div>
+                <div class="swipe-text">
+                    <h4>Factory Rates</h4>
+                    <p>Best wholesale pricing guaranteed.</p>
+                </div>
             </div>
-            <div class="feature-box">
-                <span class="feat-icon">✨</span>
-                <div class="feat-title">Premium Quality</div>
-                <p class="feat-desc">Hygiene-first packaging and durable disposables.</p>
+            <div class="swipe-card">
+                <div class="swipe-icon">✨</div>
+                <div class="swipe-text">
+                    <h4>Premium Quality</h4>
+                    <p>Hygiene-first durable packaging.</p>
+                </div>
             </div>
-
+            <div class="swipe-card">
+                <div class="swipe-icon">🤝</div>
+                <div class="swipe-text">
+                    <h4>Bulk Support</h4>
+                    <p>Special deals for caterers.</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <section class="mid-banner parallax-bg">
     <div class="mid-content">
         <h2>Bulk Orders? We've got you covered.</h2>
@@ -330,16 +335,14 @@ function updateQtyOptions() {
     const qtySelect = document.getElementById("qtySelect");
     const qtyLabel = document.getElementById("qtyLabel");
     
-    qtySelect.innerHTML = ""; // Clear existing
+    qtySelect.innerHTML = ""; 
     
     let unit = "Packets/Units";
     let max = 100;
 
     if(product.includes("Water") || product.includes("Box")){
         unit = "Box";
-        if(product.includes("Water")){
-             unit = "Boxes"; 
-        }
+        if(product.includes("Water")){ unit = "Boxes"; }
         qtyLabel.innerText = "Quantity (Boxes)";
     } else {
         qtyLabel.innerText = "Quantity (Packets/Pieces)";
@@ -354,7 +357,6 @@ function updateQtyOptions() {
         let option = document.createElement("option");
         let labelUnit = i === 1 ? unit.replace("es", "") : unit; 
         if(unit === "Boxes" && i===1) labelUnit = "Box";
-        
         option.text = `${i} ${labelUnit}`;
         option.value = `${i} ${labelUnit}`;
         qtySelect.add(option);
